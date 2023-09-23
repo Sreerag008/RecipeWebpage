@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Nunito:wght@500;700&family=Prompt:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="{% url 'index' %}">
+        <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuAySA307MspbwSlAon5QWd7PW-rmxBv18wK1emwW3_3GpC5NfQwCFMpoALfqZyPpDsjU&usqp=CAU" alt="logo"/>
+        <nav class="Navbar">                             
+        </a>
+            <a href="" class="navb">Login</a>
+            <a href="" id="reg" class="navb">Registration</a>
+        </nav>
+    </header>
+    <section id="EventSec">
+        <div id="c2" style="background-image: url({{recipe.mov_img2}}); background-size: cover;">
+        <div id="c1" class="EventClass" style="width: 70%;">
+            <h2>{{recipe.food_name}}</h2>
+            <p>Ingredients:
+                <ul>
+                <li>{{recipe.foodig1}}</li>
+                <li>{{recipe.foodig2}}</li>
+                <li>{{recipe.foodig3}}</li>
+                <li>{{recipe.foodig4}}</li>
+                <li>{{recipe.foodig5}}</li>
+                <li>{{recipe.foodig6}}</li>
+                <li>{{recipe.foodig7}}</li>
+                </ul>
+            </p>
+            <p>
+                
+                Instructions:
+                <br>
+                {{recipe.food_recipe}}
+            </ol>    
+            
+        </p>
+            <form action="{% url 'det' recipe.food_id %}" method="POST">
+                <h3>Enter your thoughts</h3>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        </div>
+    </section>
+    <footer style="position:static;">
+        <p>©Recipes 2023</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+   <header>
+    <img id="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuAySA307MspbwSlAon5QWd7PW-rmxBv18wK1emwW3_3GpC5NfQwCFMpoALfqZyPpDsjU&usqp=CAU" alt="logo"/>        
+    <nav>
+            <a class="navb" href="">login</a>
+            <a class="navb" id="reg" href="">Registeration</a>
+    </nav>
+    </header>
+
+    <section id="Events">
+    {% for recipe in recipes %}
+    <a class="title" style="text-decoration: none;" href="{% url 'det' recipe.food_id %}">
+    <div id="p1" class="event-card">
+        <img id="pasta" src="{{recipe.mov_img1}}" alt=""> 
+        <h2>{{recipe.food_name}}</h2>
+    </div>
+    </a>
+    {% endfor %}
+    <footer style="width: 100%;">
+        <p>©Recipes 2023</p>
+    </footer>
+    </section>
+   
+</body>
+</html>
