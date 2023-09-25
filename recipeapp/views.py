@@ -9,7 +9,7 @@ def index(request):
     context ={
         'recipes' : recipes
     }
-    return render(request,'recipes/index.html',context)
+    return render(request,'recipeapp/index.html',context)
 
 def det(request,pk):
     recipe=Recipe.objects.get(pk=pk)
@@ -24,4 +24,4 @@ def det(request,pk):
         'recipe' : recipe,
         'form' : form
     }
-    return render(request,'recipes/det.html',context)
+    return render(request,'recipeapp/det.html',context)
